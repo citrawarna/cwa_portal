@@ -1,0 +1,23 @@
+body {
+	font-family: 'Hind Madurai', sans-serif;
+}
+.welcome {
+	margin:0;
+	padding: 0;
+	position: relative;
+}
+
+.navs {
+	position: absolute;
+	top: 290px;
+	width: 100%
+}
+
+.jumbotron {
+	background-image: url("../img.jpg");
+	background-size: cover;
+}
+
+.padding-list {
+	padding:5px;
+}
