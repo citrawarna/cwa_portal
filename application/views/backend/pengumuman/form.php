@@ -1,8 +1,12 @@
+<?php 
+  $id_user = $this->session->userdata('id_user');
+  $user = $this->session->userdata('username');
+ ?>
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Tambah Pengumuman</h1>  
           </div>
-          <form action="<?= base_url($form_action) ?>" method="post">
+          <form action="<?= base_url($form_action) ?>" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-6">
                 <b>Tanggal :</b> 
@@ -10,7 +14,8 @@
               </div>
               <div class="col-md-6">
                 <b>User :</b> 
-                <input type="text" name="id_user" value="<?= $input['id_user'] ?>" class="form-control" placeholder="Nama User">  
+                <input type="hidden" name="id_user" value="<?= $id_user ?>">
+                <input type="text" class="form-control" placeholder="<?= $user ?>" readonly>  
               </div>
             </div>
             <b>Judul</b>
@@ -23,10 +28,10 @@
               <div class="col-md-6">
                 <b>File (pdf/docx) :</b> 
                 <input type="file" name="file" value="<?= $input['file'] ?>" class="form-control" placeholder="file">  
-              </div>
+              </div> 
               <div class="col-md-6">
                 <b>Gambar :</b> 
-                <input type="file" name="gambar" value="<?= $input['gambar'] ?>" class="form-control" placeholder="gambar">  
+                <?= form_upload('gambar', $input['gambar'], ['class' => 'form-control']) ?>
               </div>
             </div>
             <br>

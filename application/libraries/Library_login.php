@@ -17,7 +17,8 @@ class Library_login
 			$user = $row->row();
 			$data = [
 				'id_user' => $user->id_user,
-				'username' => $user->username
+				'username' => $user->username,
+				'level' => $user->level
 			];
 
 			$this->CI->session->set_userdata($data);

@@ -19,7 +19,19 @@ class Welcome extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()
-	{
-		$this->load->view('welcome_message');
+	{	
+		$pengumuman = $this->db->order_by('tanggal', 'desc')->join('user', 'user.id_user = pengumuman.id_user')->get('pengumuman')->result_array();
+		$title = 'Home - CWA Portal';
+		$description = 'Selamat datang di website portal citra warna';
+		$content = 'home';
+		$this->load->view('template', compact('description', 'title', 'content', 'pengumuman'));
+	}
+
+	function read($id) {
+		$pengumuman = $this->db->where('id_pengumuman', $id)->join('user', 'user.id_user=pengumuman.id_user')->get('pengumuman')->row_array();
+		$title = $pengumuman['judul']. 'CWA - Portal';
+		$description = $pengumuman['isi'];
+		$content = 'read';
+		$this->load->view('template', compact('pengumuman', 'title', 'description', 'content'));
 	}
 }

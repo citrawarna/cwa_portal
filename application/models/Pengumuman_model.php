@@ -49,6 +49,10 @@ class Pengumuman_model extends CI_Model
 		$this->db->insert('pengumuman', $input);
 		return $this->db->insert_id();
 	}
+
+	public function update($input, $id) {
+		$this->db->where('id_pengumuman', $id)->update('pengumuman', $input);
+	}
 }
 
  ?>
