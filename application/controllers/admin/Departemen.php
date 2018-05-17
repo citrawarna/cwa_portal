@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed!');
 
-class Kategori_nilai extends CI_Controller
+class Departemen extends CI_Controller
 {	
 	public function __construct(){
 		parent::__construct();
@@ -14,36 +14,36 @@ class Kategori_nilai extends CI_Controller
 			redirect('admin/pengumuman');
 		}
 
-		$this->load->model('kategori_model');
+		$this->load->model('departemen_model');
 	}
 
 	public function index(){
-		$kategori_nilai = $this->db->get('kategori_nilai')->result_array();
-		$description = 'Halaman Kategori Nilai';
-		$title = 'Manage Kategori Nilai - CWA Portal';
-		$content = 'backend/kategori/index';
-		$this->load->view('backend/template', compact('kategori_nilai', 'description', 'title', 'content'));
+		$departemen = $this->db->get('departemen')->result_array();
+		$description = 'Halaman Departemen';
+		$title = 'Manage Departemen - CWA Portal';
+		$content = 'backend/departemen/index';
+		$this->load->view('backend/template', compact('departemen', 'description', 'title', 'content'));
 	}
 
 	function tambah(){
 		if(!$_POST){
-			$input = (array) $this->kategori_model->getDefault();
+			$input = (array) $this->departemen_model->getDefault();
 		} else {
 			$input = (array) $this->input->post();
 		}
 
-		if(!$this->kategori_model->validate()){
-			$description = 'Halaman Kategori Nilai';
-			$title = 'Tambah Kategori Nilai - CWA Portal';
-			$content = 'backend/kategori/form';
-			$form_action = 'admin/kategori_nilai/tambah';
+		if(!$this->departemen_model->validate()){
+			$description = 'Halaman Departemen';
+			$title = 'Manage Departemen - CWA Portal';
+			$content = 'backend/departemen/form';
+			$form_action = 'admin/departemen/tambah';
 			$this->load->view('backend/template', compact('description', 'title', 'input', 'content', 'form_action'));
 			return;
 		}
 
-		$this->kategori_model->insert($input);
+		$this->departemen_model->insert($input);
 		$this->session->set_flashdata('success', 'Data user berhasil ditambah');
-		redirect('admin/kategori_nilai');
+		redirect('admin/departemen');
 	}
 }
 

@@ -5,7 +5,7 @@
 				<div class="row">	
 					<div class="col-md-6">
 						Tanggal :
-						<input type="text" name="tanggal" class="form-control" placeholder="YYYY/MM/DD" id="datepicker" required>
+						<input type="text" name="tanggal" class="form-control" placeholder="YYYY/MM/DD" id="datepicker">
 					</div>
 					<div class="col-md-6">
 						Kategori test :
@@ -40,7 +40,7 @@
 				<td><?= $row['jabatan'] ?></td>
 				<td><?= $row['nilai'] ?></td>
 				<td>
-                    <?php if($row['nilai'] <= 60) 
+                    <?php if($row['nilai'] < 60) 
                             echo"<b style='color:red'>Remidi</b>"; 
                             else 
                               echo"<b style='color:green'>Lulus</b>";

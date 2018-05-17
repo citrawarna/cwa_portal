@@ -11,12 +11,13 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('assets/jquery-ui.css') ?>">
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url('assets/css/dashboard.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/font-awesome/css/font-awesome.css') ?>" rel="stylesheet">
-
     <script src="<?= base_url('assets/ckeditor/ckeditor.js') ?>"></script>
+
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">

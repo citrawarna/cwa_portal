@@ -44,7 +44,7 @@
                   <td><?= $row['jabatan'] ?></td>
                   <td><?= $row['nilai'] ?></td>
                   <td>
-                    <?php if($row['nilai'] <= 60) 
+                    <?php if($row['nilai'] < 60) 
                             echo"<b style='color:red'>Remidi</b>"; 
                             else 
                               echo"<b style='color:green'>Lulus</b>";

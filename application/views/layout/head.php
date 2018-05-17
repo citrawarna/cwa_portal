@@ -9,6 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/jquery-ui.css') ?>">
     <!-- Custom styles for this template -->
     <link href="<?= base_url('assets/font-awesome/css/font-awesome.css') ?>" rel="stylesheet">
@@ -24,7 +25,7 @@
      $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
     
     } );
-    </script>
+</script>
 <style>
 	a:hover {
 		text-decoration: none;

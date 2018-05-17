@@ -14,7 +14,7 @@
                   Pengumuman
                 </a>
               </li>
-
+              <!-- 
               <?php if($this->session->userdata('level') == 'owner') { ?>
               <li class="nav-item">
                 <a class="nav-link <?php if($this->uri->segment(2)=='user') echo "active"; ?>" href="<?= base_url('admin/user') ?>">
@@ -23,6 +23,7 @@
                 </a>
               </li>
               <?php } ?>
+              -->
 
               <?php if($this->session->userdata('level') == 'owner') { ?>
               <li class="nav-item">
@@ -51,18 +52,32 @@
               </li>
               <?php } ?>
 
+              <?php if($this->session->userdata('level') == 'owner') { ?>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Departement
+                <a class="nav-link <?php if($this->uri->segment(2)=='biaya_training') echo "active"; ?>" href="<?= base_url('admin/biaya_training') ?>">
+                  <span data-feather="dollar-sign"></span>
+                  Biaya Training
                 </a>
               </li>
+              <?php } ?>
               
+              <?php if($this->session->userdata('level') == 'owner') { ?>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link <?php if($this->uri->segment(2)=='agenda') echo "active"; ?>" href="<?= base_url('admin/agenda') ?>">
                   <span data-feather="layers"></span>
-                  Budaya
+                  Agenda Rutin
                 </a>
               </li>
+              <?php } ?>
+    
+              <?php if($this->session->userdata('level') == 'owner') { ?>
+              <li class="nav-item">
+                <a class="nav-link <?php if($this->uri->segment(2)=='departemen') echo "active"; ?>" href="<?= base_url('admin/departemen') ?>">
+                  <span data-feather="users"></span>
+                  Departemen
+                </a>
+              </li>
+              <?php } ?>
+           
             </ul>            
         </nav>
