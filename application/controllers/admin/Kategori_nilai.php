@@ -27,7 +27,7 @@ class Kategori_nilai extends CI_Controller
 
 	function tambah(){
 		if(!$_POST){
-			$input = (array) $this->kategori_model->default();
+			$input = (array) $this->kategori_model->getDefault();
 		} else {
 			$input = (array) $this->input->post();
 		}

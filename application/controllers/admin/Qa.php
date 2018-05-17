@@ -26,15 +26,15 @@ class Qa extends CI_Controller
 	}
 
 	public function tambah(){
-		if($_POST){
-			$input = (array) $this->qa_model->default();
+		if(!$_POST){
+			$input = (array) $this->qa_model->getDefault();
 		} else {
 			$input = (array) $this->input->post();
 		}
 
 		if(!$this->qa_model->validate()){
 			$description = 'Halaman Quality Assurance - Tambah';
-			$title = 'Tambah Pengumuman - CWA Portal';
+			$title = 'Tambah CAR/PAR - CWA Portal';
 			$content = 'backend/qa/form';
 			$form_action = 'admin/qa/tambah';
 			$this->load->view('backend/template', compact('input','content', 'form_action', 'description', 'title'));
@@ -43,6 +43,36 @@ class Qa extends CI_Controller
 
 		$this->qa_model->insert($input);
 		$this->session->set_flashdata('success', 'Data berhasil ditambahkan');
+		redirect('admin/qa');
+	}
+
+	public function edit($id){
+		$quality_assurance = $this->db->where('id_quality', $id)->get('quality_assurance')->row_array();
+		if(!$_POST){
+			$input = (array) $quality_assurance;
+		} else {
+			$input = (array) $this->input->post();
+		}
+
+		if(!$this->qa_model->validate()){
+			$description = 'Halaman Quality Assurance - Edit';
+			$title = 'Edit Pengumuman - CWA Portal';
+			$content = 'backend/qa/form';
+			$form_action = 'admin/qa/edit/'.$id;
+			$this->load->view('backend/template', compact('description', 'title', 'content', 'form_action', 'input'));
+			return;
+		}
+
+		$this->qa_model->update($input, $id);
+		$this->session->set_flashdata('success', 'Data berhasil diedit');
+		redirect('admin/qa');
+	}
+
+	public function delete($id){
+		//$data = $this->db->where('id_qa', $id)->get('quality_assurance')->row_array();
+		$this->db->where('id_quality', $id)->delete('quality_assurance');
+
+		$this->session->set_flashdata('success', 'Data berhasil dihapus');
 		redirect('admin/qa');
 	}
 }

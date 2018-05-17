@@ -2,10 +2,10 @@
 
 class Kategori_model extends CI_Model
 {
-	public function default(){
+	public function getDefault(){
 		return [
-		
-				'nama_test' => ''
+		        'id_kat' => '',
+				'nama_test' => '',
 		
 		];
 	}

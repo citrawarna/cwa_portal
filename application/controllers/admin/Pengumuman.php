@@ -139,3 +139,4 @@ class Pengumuman extends CI_Controller
 }
 
  ?>
+

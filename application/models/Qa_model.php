@@ -2,7 +2,7 @@
 
 class Qa_model extends CI_Model
 {
-	function default(){
+	function getDefault(){
 		return [
 			'id_quality' => '',
 			'id_qa' => '',
@@ -64,6 +64,10 @@ class Qa_model extends CI_Model
 	public function insert($input) {
 		$this->db->insert('quality_assurance', $input);
 		return $this->db->insert_id();
+	}
+
+	function update($input, $id){
+		$this->db->where('id_quality', $id)->update('quality_assurance', $input);
 	}
 }
 

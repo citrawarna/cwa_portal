@@ -1,14 +1,6 @@
-<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h2 class="display-4">PORTAL CITRA WARNA</h2>
-			<p class="lead">Mari berwarna bersama citra warna.</p>
-			<p class="lead">
-		    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-		  </p>
-		</div>
-	</div>
 	
-
+	<img src="<?= base_url('assets/img/jumbotron.jpg') ?>" alt="header" class="img-fluid">
+		
 	<div class="container" style="margin-top:70px">
 		<h2>Berita Terbaru</h2>
 		<ul class="list-group">
